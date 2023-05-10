@@ -122,8 +122,9 @@
                                 <label class="form-label" for="type">{{ __('common.type') }}</label>
                                 <select id="type" name="type" class="form-control">
                                     <option value="" disabled selected>@lang('common.select')</option>
-                                    <option value="1">article</option>
-                                    <option value="2">ads</option>
+                                    <option value="1">@lang('common.article')</option>
+                                    <option value="2">@lang('common.ads')</option>
+                                    <option value="3">@lang('common.activity')</option>
                                 </select>
                                 {{-- @if ($errors->has('title_' . $key))
                                         <div style="color: red">{{ $errors->first('title_' . $key) }}</div>
@@ -207,6 +208,15 @@
                                 <input type="file" id="edit_image" name="image" class="form-control"
                                     placeholder="{{ __('common.image') }}" />
                                 <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label" for="edit_type">{{ __('common.type') }}</label>
+                                <select id="edit_type" name="type" class="form-control">
+                                    <option value="" disabled selected>@lang('common.select')</option>
+                                    <option value="1">@lang('common.article')</option>
+                                    <option value="2">@lang('common.ads')</option>
+                                    <option value="3">@lang('common.activity')</option>
+                                </select>
                             </div>
                             <img id="show_image" style="width: 150px">
                             <div class="col-12 text-center mt-2 pt-50">

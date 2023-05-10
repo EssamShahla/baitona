@@ -50,16 +50,16 @@ class LoginController extends Controller
     public function create()
     {
         $user = User::create([
-            'first_name' => 'essam',
-            'last_name' => 'shahla',
+            'first_name' => 'Super',
+            'last_name' => 'Admin',
             'gender' => 0,
             'status' => 0,
             'date' => '2992003',
             'mobile' => '0599857341',
-            'email' => 'essam@gmail.com',
+            'email' => 'super@admin.com',
             'city' => 'gaza',
             'specialty' => 'coding',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('123456'),
         ]);
 
         // You can also add additional fields as needed

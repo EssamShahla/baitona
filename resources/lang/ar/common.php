@@ -91,6 +91,11 @@ return [
     'permissions' => 'الصلاحيات',
     'select' => 'اختيار',
     'program' => 'برنامج',
-    'password' => 'كلمة المرور',
+    'ad' => 'إعلان',
+    'password' => 'كلمة السر',
+    'search' => 'البحث',
+    'Administrative' => 'إداري',
+    'Financial' => 'مالي',
     'edit' => 'تعديل'
+
 ];

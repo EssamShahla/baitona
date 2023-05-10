@@ -38,22 +38,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'name_ar' => 'required',
-            'name_en' => 'required',
-            'message_ar' => 'required',
-            'message_en' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
-            'type' => 'required',
-        ];
-
-        $this->validate($request, $rules);
-        $data['type'] = 1;
-
-        Contact::query()->create($data);
-
-        return response()->json(['status' => true]);
+        
     }
 
     /**
@@ -104,24 +89,22 @@ class ContactController extends Controller
 
     public function indexTable(Request $request)
     {
-        // dd('asd');
-        // $contacts = Contact::query()->where('type', 1)->orderByDesc('created_at');
-        // return DataTables::of($contacts)->addColumn('action', function ($contact) {
-        //     $data = '';
-        //     $data .= 'data-name_ar="' . $contact->name_ar . '"';
-        //     $data .= 'data-name_en="' . $contact->name_en . '"';
-        //     $data .= 'data-message_ar="' . $contact->message_ar . '"';
-        //     $data .= 'data-message_en="' . $contact->message_en . '"';
-        //     $data .= 'data-email="' . $contact->email . '"';
-        //     $data .= 'data-mobile="' . $contact->mobile . '"';
-        //     $data .= 'data-type="' . $contact->type . '"';
-        //     $data .= 'data-id="' . $contact->id . '"';
+        dd('asd');
+        $contacts = Contact::query()->where('type', 1)->orderByDesc('created_at');
+        return DataTables::of($contacts)->addColumn('action', function ($contact) {
+            $data = '';
+            $data .= 'data-name_ar="' . $contact->name_ar . '"';
+            $data .= 'data-message_ar="' . $contact->message_ar . '"';
+            $data .= 'data-email="' . $contact->email . '"';
+            $data .= 'data-mobile="' . $contact->mobile . '"';
+            $data .= 'data-type="' . $contact->type . '"';
+            $data .= 'data-id="' . $contact->id . '"';
 
-        //     $string = '';
-        //     $string .= '<button class="btn btn-warning edit_btn" ' . $data . '  data-bs-target="#editUser" data-bs-toggle="modal">Edit</button>';
-        //     $string .= '<button class="btn btn-danger delete-btn" data-id=' . $contact->id . '>Delete</button>';
+            $string = '';
+            $string .= '<button class="btn btn-warning edit_btn" ' . $data . '  data-bs-target="#editUser" data-bs-toggle="modal">Edit</button>';
+            $string .= '<button class="btn btn-danger delete-btn" data-id=' . $contact->id . '>Delete</button>';
 
-        //     return $string;
-        // })->make(true);
+            return $string;
+        })->make(true);
     }
 }

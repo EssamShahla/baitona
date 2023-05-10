@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticalController extends Controller
@@ -134,12 +135,14 @@ class ArticalController extends Controller
     public function indexTable(Request $request)
     {
         // dd('asd');
-        $articles = Article::query()->where('type', 1)->orderByDesc('created_at');
+        $articles = Article::query()->orderByDesc('created_at');
         return DataTables::of($articles)->addColumn('type', function ($item) {
             if ($item->type == 1) {
-                return  '<span class="badge"> Article </span>';
-            } else {
-                return  '<span class="badge"> Ad </span>';
+                return  '<span class="badge bg-danger"> Article </span>';
+            } else if($item->type == 2) {
+                return  '<span class="badge bg-info"> Ad </span>';
+            }else{
+                return  '<span class="badge bg-success"> Activity </span>';
             }
         })
         ->addColumn('action', function ($article) {

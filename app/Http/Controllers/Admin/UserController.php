@@ -134,8 +134,8 @@ class UserController extends Controller
             $filename = $request->image->move(public_path('images'), $filename);
             $data['image'] = $filename->getBasename();
         }
-        
-        $data['password'] = Hash::make($request->password);
+
+        $data['password'] = Hash::update($request->password);
         $user->update($data);
         $user->roles()->sync($request->role_ids);
 

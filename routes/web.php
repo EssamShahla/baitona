@@ -12,6 +12,9 @@ use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\website\IndexController;
+use App\Http\Controllers\website\AboutController;
+use App\Http\Controllers\website\ContactController as WebsiteContactController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -120,4 +123,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('contacts', [SectionController::class, 'store'])->name('contacts.store');
         Route::get('contacts/indexTable', [ContactController::class, 'indexTable'])->name('contacts.indexTable');
     });
+
+});
+
+Route::group(['prefix' => 'baitona'], function(){
+    Route::get('/home', [IndexController::class, 'index'])->name('baitona.home');
+    Route::get('/about', [IndexController::class, 'about'])->name('baitona.about');
+    Route::get('/services', [IndexController::class, 'index'])->name('baitona.services');
+    Route::get('/program/{id}', [IndexController::class, 'index'])->name('baitona.programs');
+    Route::get('/contact', [WebsiteContactController::class, 'index'])->name('baitona.contact');
+    Route::post('/contact/store', [WebsiteContactController::class, 'store'])->name('baitona.create-contact');
 });
