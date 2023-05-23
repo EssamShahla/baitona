@@ -135,7 +135,7 @@ class UserController extends Controller
             $data['image'] = $filename->getBasename();
         }
 
-        $data['password'] = Hash::update($request->password);
+        $data['password'] = Hash::make($request->password);
         $user->update($data);
         $user->roles()->sync($request->role_ids);
 

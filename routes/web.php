@@ -13,8 +13,8 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\website\IndexController;
-use App\Http\Controllers\website\AboutController;
 use App\Http\Controllers\website\ContactController as WebsiteContactController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -31,7 +31,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
     Route::get('login', [LoginController::class, 'showLoginForm']);
-    Route::get('/', [LoginController::class, 'showLoginForm']);
     Route::post('login', [LoginController::class, 'login'])->name('admin.login');
 
     Route::group(['prefix' => 'admin'], function(){
@@ -93,7 +92,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
         Route::put('reports/{id}/update', [ReportController::class, 'update'])->name('reports.update');
         Route::delete('reports/{id}/destroy', [ReportController::class, 'destroy'])->name('reports.destroy');
-        // Route::get('reports/{id}/download', [ReportController::class, 'getDownload'])->name('reports.download');
 
         //programs
         Route::get('programs', [ProgramController::class, 'index'])->name('programs.index');
@@ -121,16 +119,46 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         //contacts
         Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
         Route::post('contacts', [SectionController::class, 'store'])->name('contacts.store');
+        Route::delete('contacts/{id}/destroy', [ContactController::class, 'destroy'])->name('contacts.destroy');
         Route::get('contacts/indexTable', [ContactController::class, 'indexTable'])->name('contacts.indexTable');
+
     });
 
 });
 
-Route::group(['prefix' => 'baitona'], function(){
-    Route::get('/home', [IndexController::class, 'index'])->name('baitona.home');
-    Route::get('/about', [IndexController::class, 'about'])->name('baitona.about');
-    Route::get('/services', [IndexController::class, 'index'])->name('baitona.services');
-    Route::get('/program/{id}', [IndexController::class, 'index'])->name('baitona.programs');
-    Route::get('/contact', [WebsiteContactController::class, 'index'])->name('baitona.contact');
-    Route::post('/contact/store', [WebsiteContactController::class, 'store'])->name('baitona.create-contact');
+
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+        Route::group(['prefix' => 'baitona'], function(){
+        Route::get('/home', [IndexController::class, 'index'])->name('baitona.home');
+
+        // about page
+        Route::get('/about', [IndexController::class, 'about'])->name('baitona.about');
+
+
+        // programs page
+        Route::get('/program/{id}', [IndexController::class, 'programs'])->name('baitona.programs');
+
+        //blog page
+        Route::get('/blog', [IndexController::class, 'blog'])->name('baitona.blog');
+
+        // contact page
+        Route::get('/contact', [WebsiteContactController::class, 'index'])->name('baitona.contact');
+        Route::post('/contact/store', [WebsiteContactController::class, 'store'])->name('baitona.create-contact');
+
+        // protocol page
+        Route::get('/policies', [IndexController::class, 'policies'])->name('baitona.protocol');
+
+        // reports pages
+        Route::get('/administrative', [IndexController::class, 'administrative'])->name('baitona.administrative');
+        Route::get('/financial', [IndexController::class, 'financial'])->name('baitona.financial');
+
+        // article-details page
+        Route::get('/article/{id}', [IndexController::class, 'article_details'])->name('baitona.article_details');
+        // announcement-details page
+        Route::get('/announcement/{id}', [IndexController::class, 'article_details'])->name('baitona.announcement_details');
+
+
+    });
+
 });

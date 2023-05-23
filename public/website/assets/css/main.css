@@ -10,10 +10,11 @@
 # Set main reusable colors and fonts using CSS variables
 # Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 --------------------------------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Fonts */
 :root {
-    --font-default: "Cairo";
-    --font-primary: "Cairo", sans-serif;
+    --font-default: "Roboto";
+    --font-primary: "Roboto", sans-serif;
     --font-secondary: "Work Sans", sans-serif;
 }
 
@@ -80,6 +81,7 @@ section {
     position: relative;
     color: #2e3135;
 }
+
 .section-header h2:before,
 .section-header h2:after {
     content: "";
@@ -244,6 +246,54 @@ section {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+.topbar {
+    height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
+    z-index: 99999;
+    position: absolute;
+    padding: 30px 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+  .topbar .contact-info i {
+    font-style: normal;
+    color: #fff ;
+    line-height: 0;
+  }
+
+  .topbar .contact-info i a,
+  .topbar .contact-info i span {
+    padding-left: 5px;
+    color: #fff;
+  }
+
+  @media (max-width: 575px) {
+
+    .topbar .contact-info i a,
+    .topbar .contact-info i span {
+      font-size: 13px;
+    }
+  }
+
+  .topbar .contact-info i a {
+    line-height: 0;
+    transition: 0.3s;
+  }
+
+  .topbar .social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 0;
+    transition: 0.3s;
+    margin-left: 20px;
+  }
+
+  .topbar .social-links a:hover {
+    color: #fff;
+  }
 .header {
     z-index: 997;
     position: absolute;
@@ -254,7 +304,7 @@ section {
 }
 
 .header .logo img {
-    max-height: 40px;
+    max-height: 50px;
     margin-right: 6px;
 }
 
@@ -433,6 +483,10 @@ section {
         bottom: 0;
         transition: 0.3s;
         z-index: 9997;
+        margin-top: 50px;
+    }
+    .bi-x{
+        margin-top: 50px;
     }
 
     .navbar ul {
@@ -1294,8 +1348,6 @@ section {
 
 }
 
-
-
 /*--------------------------------------------------------------
 # Our Team Section
 --------------------------------------------------------------*/
@@ -1671,7 +1723,7 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    background: #fff;
+    /* background: #fff; */
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
     padding: 30px;
 }
@@ -2870,79 +2922,6 @@ section {
         transform: scale(1, 1);
         opacity: 0;
     }
-}
-
-
-/*--------------------------------------------------------------
-# Our Team Section
---------------------------------------------------------------*/
-.team .member {
-    text-align: center;
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    overflow: hidden;
-    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-}
-
-.team .member img {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.team .member .member-content {
-    padding: 0 20px 30px 20px;
-}
-
-.team .member h4 {
-    font-weight: 700;
-    margin-top: 16px;
-    margin-bottom: 2px;
-    font-size: 20px;
-}
-
-.team .member span {
-    font-style: italic;
-    display: block;
-    font-size: 14px;
-    color: #6c757d;
-}
-
-.team .member p {
-    padding-top: 10px;
-    font-size: 14px;
-    font-style: italic;
-    color: #6c757d;
-}
-
-.team .member .social {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.team .member .social a {
-    color: #a2a2a2;
-    transition: 0.3s;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #bbbbbb;
-}
-
-.team .member .social a:hover {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-
-.team .member .social i {
-    font-size: 18px;
-    margin: 0 2px;
 }
 
 /*--------------------------------------------------------------

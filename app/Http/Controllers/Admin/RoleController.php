@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -53,8 +53,12 @@ class RoleController extends Controller
 
         $this->validate($request, $rules);
 
-        $data = $request->only('name');
-        $data['guard_name'] = 'admin';
+        if ($request->name == 'admin' || $request->name == 'super admin') {
+            $data['guard_name'] = "admin";
+        } else {
+            $data['guard_name'] = "author";
+        }
+        $data['name'] = $request->get('name');
         $role = Role::query()->create($data);
 
         $role->permissions()->sync($request->permission_ids);
@@ -103,8 +107,12 @@ class RoleController extends Controller
 
         $this->validate($request, $rules);
 
-        $data = $request->only('name');
-
+        if ($request->name == 'admin' || $request->name == 'super admin') {
+            $data['guard_name'] = "admin";
+        } else {
+            $data['guard_name'] = "author";
+        }
+        $data['name'] = $request->get('name');
 
         $role->update($data);
         $role->permissions()->sync($request->permission_ids);
@@ -120,7 +128,8 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Role::query()->whereIn('id', explode(',', $id))->delete();
+        return response()->json(['status' => true]);
     }
 
     public function indexTable(Request $request)

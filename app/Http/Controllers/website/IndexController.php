@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Partner;
 use App\Models\Program;
+use App\Models\Section;
 use App\Models\Slider;
+use App\Models\Report;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -26,13 +28,67 @@ class IndexController extends Controller
         $videos = Video::orderBy('created_at', 'desc')->take(1)->get();
         $partners = Partner::all();
         $programs = Program::all();
-        return response()->view('website.index', compact('sliders', 'activities', 'articles', 'ads', 'partners','videos' , 'programs'));
+        $reports = Report::all();
+
+        return response()->view('website.index', compact('sliders', 'activities', 'articles', 'ads', 'partners','videos' , 'programs' , 'reports'));
     }
 
     public function about()
     {
         $programs = Program::all();
         return response()->view('website.about' , compact('programs'));
+    }
+
+    public function blog()
+    {
+        $articleall = Article::where('type', '1')->orderBy('created_at', 'desc')->get();
+        $programs = Program::all();
+
+        return response()->view('website.blog' , compact('programs','articleall'));
+    }
+
+
+    public function policies()
+    {
+        $programs = Program::all();
+        $reports = Report::all();
+
+        return response()->view('website.policies' , compact('programs' , 'reports'));
+    }
+
+
+    public function financial()
+    {
+        $programs = Program::all();
+        $financials = Report::where('type', '1')->orderBy('created_at', 'desc')->get();
+
+        return response()->view('website.financial' , compact('programs','financials'));
+    }
+
+
+    public function administrative()
+    {
+        $programs = Program::all();
+        $administratives = Report::where('type', '2')->orderBy('created_at', 'desc')->get();
+
+        return response()->view('website.administrative' , compact('programs','administratives'));
+    }
+
+
+    public function programs($id){
+        $programs = Program::all();
+        $sections = Section::where('program_id' , $id)->get();
+        $thisProgram = Program::findOrFail($id);
+
+        return response()->view('website.program' , compact('programs' ,'sections' , 'thisProgram'));
+    }
+
+
+    public function article_details($id){
+        $programs = Program::all();
+        $article = Article::findOrFail($id);
+
+        return response()->view('website.article-details' , compact('programs' ,'article'));
     }
 
     /**

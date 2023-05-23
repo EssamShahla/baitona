@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/app-assets/images/ico/log-ico.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
         rel="stylesheet">
- 
+
     @if (LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
         <!-- BEGIN: Vendor CSS-->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/app-assets/vendors/css/vendors-rtl.min.css') }}">
@@ -152,6 +152,7 @@
             href="{{ asset('assets/app-assets/css/plugins/forms/form-validation.css') }}">
         <link rel="stylesheet" type="text/css"
             href="{{ asset('assets/app-assets/css/pages/modal-create-app.css') }}">
+        <link rel="stylesheet" href="{{ asset('texteditor/richtexteditor/rte_theme_default.css') }}" />
         <!-- END: Page CSS-->
 
         <!-- BEGIN: Custom CSS-->
@@ -240,97 +241,6 @@
                 </li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
                             data-feather="moon"></i></a></li>
-                {{-- <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
-                    <div class="search-input">
-                        <div class="search-input-icon"><i data-feather="search"></i></div>
-                        <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="search">
-                        <div class="search-input-close"><i data-feather="x"></i></div>
-                        <ul class="search-list search-list-main"></ul>
-                    </div>
-                </li> --}}
-                {{-- <li class="nav-item dropdown dropdown-cart me-25"><a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="ficon" data-feather="shopping-cart"></i><span class="badge rounded-pill bg-primary badge-up cart-item-count">6</span></a>
-                    <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
-                        <li class="dropdown-menu-header">
-                            <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">My Cart</h4>
-                                <div class="badge rounded-pill badge-light-primary">4 Items</div>
-                            </div>
-                        </li>
-                        <li class="scrollable-container media-list">
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="{{ asset('assets/app-assets/images/pages/eCommerce/1.png') }}" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Apple watch 5</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$374.90</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="{{ asset('assets/app-assets/images/pages/eCommerce/7.png') }}" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Google Home Mini</a></h6><small class="cart-item-by">By Google</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="3">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$129.40</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="{{ asset('assets/app-assets/images/pages/eCommerce/2.png') }}" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iPhone 11 Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="2">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$699.00</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="{{ asset('assets/app-assets/images/pages/eCommerce/3.png') }}" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iMac Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$4,999.00</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="{{ asset('assets/app-assets/images/pages/eCommerce/5.png') }}" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> MacBook Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$2,999.00</h5>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown-menu-footer">
-                            <div class="d-flex justify-content-between mb-1">
-                                <h6 class="fw-bolder mb-0">Total:</h6>
-                                <h6 class="text-primary fw-bolder mb-0">$10,999.00</h6>
-                            </div><a class="btn btn-primary w-100" href="app-ecommerce-checkout.html">Checkout</a>
-                        </li>
-                    </ul>
-                </li> --}}
                 <li class="nav-item dropdown dropdown-notification me-25"><a class="nav-link" href="#"
                         data-bs-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span
                             class="badge rounded-pill bg-danger badge-up">5</span></a>
@@ -440,8 +350,8 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span
                                 class="user-name fw-bolder">@lang('common.app_name')</span><span
-                                class="user-status">Admin</span></div><span class="avatar"><img class="round"
-                                src="{{ asset('assets/app-assets/images/portrait/small/image 8.png') }}"
+                                class="user-status">{{ auth('admin')->user()->full_name }}</span></div><span
+                            class="avatar"><img class="round" src="{{ auth('admin')->user()->image }}"
                                 alt="avatar" height="40" width="40"><span
                                 class="avatar-status-online"></span></span>
                     </a>
@@ -628,62 +538,70 @@
                             data-feather="home"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.home') }}</span></a>
                 </li>
-                {{-- @if (auth('admin')->user()->hasAnyPermission([
-                            'show_users',
-                            'create_users',
-                            'edit_users',
-                            'delete_users',
-                            'show_roles',
-                            'create_roles',
-                            'edit_roles',
-                            'delete_roles',
-                        ])) --}}
-                    <li class=" navigation-header"><span
-                            data-i18n="User & Roles-permission">{{ __('common.users') . ' & ' . __('common.roles') }}</span>
-                    </li>
-                    {{-- @if (auth('admin')->user()->hasAnyPermission(['show_users', 'create_users', 'edit_users', 'delete_users'])) --}}
-                        <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'users' ? 'active' : '' }}">
-                            <a class="d-flex align-items-center" href="{{ route('users.index') }}"><i
-                                    data-feather="user"></i><span class="menu-title text-truncate"
-                                    data-i18n="Table">{{ __('common.users') }}</span></a>
-                        </li>
-                    {{-- @endif --}}
-                    {{-- @if (auth('admin')->user()->hasAnyPermission(['show_roles', 'create_roles', 'edit_roles', 'delete_roles'])) --}}
-                        <li
-                            class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'roles_manager' ? 'active' : '' }}">
-                            <a class="d-flex align-items-center" href="{{ route('roles_manager.index') }}"><i
-                                    data-feather="home"></i><span class="menu-title text-truncate"
-                                    data-i18n="Table">{{ __('common.roles') }}</span></a>
-                        </li>
-                    {{-- @endif --}}
-                {{-- @endif --}}
+
+                @canany(['show_users','show_permissions'])
+                <li class=" navigation-header"><span
+                        data-i18n="User & Roles-permission">{{ __('common.users') . ' & ' . __('common.roles') }}</span>
+                </li>
+                @endcan
+                {{-- @can('show_users') --}}
+                <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'users' ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="{{ route('users.index') }}"><i
+                            data-feather="user"></i><span class="menu-title text-truncate"
+                            data-i18n="Table">{{ __('common.users') }}</span></a>
+                </li>
+                {{-- @endcan --}}
+                {{-- @if (auth('admin')->user()->hasAnyPermission(['show_roles', 'create_roles', 'edit_roles', 'delete_roles'])) --}}
+                {{-- @can('show_roles') --}}
+                <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'roles_manager' ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="{{ route('roles_manager.index') }}"><i
+                            data-feather="home"></i><span class="menu-title text-truncate"
+                            data-i18n="Table">{{ __('common.roles') }}</span></a>
+                </li>
+                {{-- @endcan --}}
+
+
+                @canany(['show_articles','show_videos','show_reports','show_partners','show_sliders','show_programs','show_sections','show_contacts'])
                 <li class=" navigation-header"><span
                         data-i18n="Dashboard">{{ __('common.managment') . ' ' . __('common.content') }}</span></li>
+                        @endcanany
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'articles' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('articles.index') }}"><i
                             data-feather="file-text"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.articles') }}</span></a>
                 </li>
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'partners' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('partners.index') }}"><i
                             data-feather="share-2"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.partners') }}</span></a>
                 </li>
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'sliders' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('sliders.index') }}"><i
                             data-feather="sliders"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.sliders') }}</span></a>
                 </li>
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'videos' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('videos.index') }}"><i
                             data-feather="video"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.videos') }}</span></a>
                 </li>
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'reports' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('reports.index') }}"><i
                             data-feather="file-text"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.reports') }}</span></a>
                 </li>
+
+
                 <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'programs' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('programs.index') }}"><i
                             data-feather="home"></i><span class="menu-title text-truncate"
@@ -694,11 +612,14 @@
                             data-feather="home"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.sections') }}</span></a>
                 </li>
-                <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'contact' ? 'active' : '' }}"><a
+
+
+                <li class="nav-item {{ strtok(Route::currentRouteName(), '.') == 'contacts' ? 'active' : '' }}"><a
                         class="d-flex align-items-center" href="{{ route('contacts.index') }}"><i
                             data-feather="home"></i><span class="menu-title text-truncate"
                             data-i18n="Table">{{ __('common.contacts') }}</span></a>
                 </li>
+
 
                 {{-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Invoice</span></a>
                     <ul class="menu-content">
@@ -871,6 +792,8 @@
     <script src="{{ asset('assets/app-assets/js/scripts/forms/form-file-uploader.js') }}"></script>
     <script src="{{ asset('assets/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js') }}"></script>
     <script src="{{ asset('assets/app-assets/js/scripts/forms/form-select2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('texteditor/richtexteditor/rte.js') }}"></script>
+    <script type="text/javascript" src='{{ asset('texteditor/richtexteditor/plugins/all_plugins.js') }}'></script>
 
     @section('scripts')
     @show

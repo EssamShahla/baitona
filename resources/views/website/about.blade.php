@@ -10,49 +10,96 @@
 
 @section('content')
     <main id="main">
-
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center " style="background-image: url({{asset('website/assets/img/baitona-location.jpeg')}});">
+        <div class="breadcrumbs d-flex align-items-center "
+            style="background-image: url({{ asset('website/assets/img/baitona-location.jpeg') }});">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-
-                <h2>من نحن</h2>
+                <h2>About</h2>
                 <ol>
-                    <li><a href="{{route('baitona.home')}}">بيتنا</a></li>
-                    <li><a href="">من نحن</a></li>
+                    <li><a href="{{ route('baitona.home') }}">Home</a></li>
+                    <li><a href="">About</a></li>
                 </ol>
-
             </div>
         </div>
         <!-- End Breadcrumbs -->
-        <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
-                <div class="row position-relative">
-                    <div class="col-lg-7 order-lg-2 about-img"
-                        style="background-image: url({{ asset('assets/app-assets/images/ico/log-ico.png') }});"></div>
+                <div class="row">
                     <div class="col-lg-7 order-lg-1">
                         <h2>Baitona for Community Development (BCD)</h2>
                         <div class="our-story bg-white">
                             <h4>Est 2003</h4>
-                            <h3>Our Story</h3>
+                            <h3>Legal Status and Registration:</h3>
                             <p>Legal Status and Registration: Baitona for Community Development (BCD) is a non-governmental
                                 and non-profit organization. It was registered in the Ministry of Interior on 20th May 2003
                                 under registration NO. 7284. Baitona’s health services are registered in the Ministry of
                                 Health under registration NO. “2007/4H”. The registration number of social affairs is 1045
                                 on 2nd augh. 2003. BCD also has a license from the Ministry of Education and Hight Education
                                 under the number 31511228. </p>
+                            <h3>Vision: </h3>
+                            <p>"Towards pioneering in providing health, social and developmental services to the Palestinian
+                                community"</p>
+                            <h3>Mission:</h3>
+                            <p>BCD, an independent NGO, seeks to empower the various and most vulnerable segments of
+                                Palestinian society in the governorates of Gaza through quality integrated programs (health,
+                                educational, social, and developmental) with its commitment to the principles of democracy
+                                and human rights</p>
+                            <h3>Values:</h3>
+                            <p>Observance of the values and customs of society, humanity, social responsibility, ethics,
+                                equality and commitment to human rights, and justice.</p>
+                            <h3>Beneficiaries:</h3>
                             <ul>
-                                <li><i class="bi bi-check-circle"></i><span>Ullamco laboris nisi ut aliquip ex ea
-                                        commo</span></li>
-                                <li><i class="bi bi-check-circle"></i><span>Duis aute irure dolor in reprehenderit in</span>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>Children.
                                 </li>
-                                <li><i class="bi bi-check-circle"></i><span>Ullamco laboris nisi ut aliquip ex ea</span>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>Women and men.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>Youth.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>Old people.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>People with disabilities.
                                 </li>
                             </ul>
-                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-lg-2">
+                        <div class="col-lg-7 order-lg-2 about-img"
+                            style="background-image: url({{ asset('assets/app-assets/images/ico/log-ico.png') }}); position : static; width:100%;">
+                        </div>
+                        <div>
+                            <h3>Objectives:</h3>
+                            <ul>
+                                <li><i class="bi bi-check2-all"></i>Activating the role of the Palestinian house in
+                                    sustainable community development.</li>
+                                <li><i class="bi bi-check2-all"></i>Early intervention with the family to take care of
+                                    children from the first year of birth.</li>
+                                <li><i class="bi bi-check2-all"></i>Reducing psychological and social pressure on children
+                                    and their families.</li>
+                                <li><i class="bi bi-check2-all"></i>Providing training opportunities for young people to
+                                    create a spirit of initiative and leadership in building productive development
+                                    projects.</li>
+                                <li><i class="bi bi-check2-all"></i>Spreading community awareness about the principles of
+                                    democracy and civil society.</li>
+                                <li><i class="bi bi-check2-all"></i>Work on rehabilitating women to increase their
+                                    participation in community activities aimed at developing their capabilities and
+                                    building their independent personality.</li>
+                                <li><i class="bi bi-check2-all"></i>Providing appropriate opportunities for women's
+                                    participation in economic development through income-generating projects.</li>
+                                <li><i class="bi bi-check2-all"></i>Establishing health centers in line with the needs of
+                                    the Palestinian society.</li>
+                                <li><i class="bi bi-check2-all"></i>Establishing educational centers and institutions and
+                                    kindergartens in line with the needs of the Palestinian society.</li>
+                                <li><i class="bi bi-check2-all"></i>Establishing cultural centers in line with the needs of
+                                    the Palestinian society.</li>
+                            </ul>
                             <div class="watch-video d-flex align-items-center position-relative">
                                 <i class="bi bi-play-circle"></i>
-                                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox stretched-link">Watch
+                                <a href="https://www.youtube.com/watch?v=XpqgK4qBLg4" class="glightbox stretched-link">Watch
                                     Video</a>
                             </div>
                         </div>
@@ -60,104 +107,57 @@
                 </div>
             </div>
         </section>
-
         <!-- End About Section -->
 
-        <!-- ======= Stats Counter Section ======= -->
-        <section id="stats-counter" class="stats-counter section-bg">
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                                    class="purecounter"></span>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Stats Item -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                                    class="purecounter"></span>
-                                <p>Projects</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Stats Item -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-headset color-green flex-shrink-0"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                                    class="purecounter"></span>
-                                <p>Hours Of Support</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Stats Item -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item d-flex align-items-center w-100 h-100">
-                            <i class="bi bi-people color-pink flex-shrink-0"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                                    class="purecounter"></span>
-                                <p>Hard Workers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Stats Item -->
-                </div>
-            </div>
-        </section>
-        <!-- End Stats Counter Section -->
-
         <!-- ======= Alt Services Section ======= -->
-        <section id="alt-services" class="alt-services">
+        <section id="alt-p" class="alt-services">
             <div class="container" data-aos="fade-up">
                 <div class="row justify-content-around gy-4">
-                    <div class="col-lg-6 img-bg" style="background-image: url(assets/img/alt-services.jpg);"
+                    <div class="col-lg-6 img-bg"
+                        style="width: 650px; height: 650px; background-image: url({{ asset('website/assets/img/CEO.jpeg') }});"
                         data-aos="zoom-in" data-aos-delay="100"></div>
                     <div class="col-lg-5 d-flex flex-column justify-content-center">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima
-                            temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
+                        <h3>Abed Elrahman Muzanen</h3>
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
                             <i class="bi bi-easel flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident</p>
+                                <h4><a href="" class="stretched-link">Job Description</a></h4>
+                                <p>CEO</p>
                             </div>
-                        </div><!-- End Icon Box -->
+                        </div>
+                        <!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-patch-check flex-shrink-0"></i>
+                            {{-- <i class="bi bi-patch-check flex-shrink-0"></i> --}}
+                            <i class="fa-solid fa-envelope"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque</p>
+                                <h4><a href="" class="stretched-link">E-mail</a></h4>
+                                <p>abed1407@hotmail.com</p>
                             </div>
-                        </div><!-- End Icon Box -->
+                        </div>
+                        <!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            {{-- <i class="bi bi-brightness-high flex-shrink-0"></i> --}}
+                            <i class="fa-solid fa-mobile-screen-button"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
-                                    deserunt minus aut eligendi omnis</p>
+                                <h4><a href="" class="stretched-link">Mobile Number</a></h4>
+                                <p>+970599476888</p>
                             </div>
-                        </div><!-- End Icon Box -->
+                        </div>
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            {{-- <i class="bi bi-brightness-high flex-shrink-0"></i> --}}
+                            <i class="fa-solid fa-photo-film"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4><a href="" class="stretched-link">social media</a></h4>
+                                <div>
+                                    <div class="d-flex mt-3">
+                                        <a href="https://twitter.com/baitonabcd" target="_blank" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                                        <a href="https://www.facebook.com/baitonabcd" target="_blank" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                                        <a href="https://instagram.com/baitonabcd?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                                        <a href="https://youtube.com/@baitonabcd" target="_blank" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- End Icon Box -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -169,63 +169,80 @@
             <div class="container" data-aos="fade-up">
                 <div class="row justify-content-around gy-4">
                     <div class="col-lg-5 d-flex flex-column justify-content-center">
-                        <h3>Non quasi officia eum nobis et rerum epudiandae rem voluptatem</h3>
-                        <p>Maxime quia dolorum alias perspiciatis. Earum voluptatem sint at non. Ducimus maxime minima iste
-                            magni sit praesentium assumenda minus. Amet rerum saepe tempora vero.</p>
+                        <h3>Ahmed Mohammed Abu Nada</h3>
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
                             <i class="bi bi-easel flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident</p>
+                                <h4><a href="" class="stretched-link">Job Description</a></h4>
+                                <p>Program Manager</p>
                             </div>
                         </div>
                         <!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-patch-check flex-shrink-0"></i>
+                            <i class="fa-solid fa-envelope"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque</p>
+                                <h4><a href="" class="stretched-link">E-mail</a></h4>
+                                <p>ahmed.m.a.nada@gmail.com</p>
                             </div>
                         </div>
                         <!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
-                                    deserunt minus aut eligendi omnis</p>
+                                <h4><a href="" class="stretched-link">Mobile Number</a></h4>
+                                <p>+972598866644</p>
                             </div>
                         </div>
                         <!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            {{-- <i class="bi bi-brightness-high flex-shrink-0"></i> --}}
+                            <i class="fa-solid fa-photo-film"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4><a href="" class="stretched-link">social media</a></h4>
+                                <div class="social-links d-none d-md-flex align-items-center gap-3">
+                                    <a href="https://www.facebook.com/baitonabcd" target="_blank" class="facebook"><i class="bi bi-facebook fs-6"></i></a>
+                                    <a href="https://instagram.com/baitonabcd?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="instagram"><i class="bi bi-instagram fs-6"></i></a>
+                                    <a href="https://youtube.com/@baitonabcd" class="youtube" target="_blank"><i class="bi bi-youtube fs-6"></i></a>
+                                    <a href="https://wa.me/970599522915" target="_blank" ><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
                             </div>
                         </div>
                         <!-- End Icon Box -->
                     </div>
-                    <div class="col-lg-6 img-bg" style="background-image: url(assets/img/alt-services-2.jpg);"
+                    <div class="col-lg-6 img-bg"
+                        style="width: 650px; height: 650px; background-image: url({{ asset('website/assets/img/ahmed.jpeg') }});"
                         data-aos="zoom-in" data-aos-delay="100"></div>
                 </div>
             </div>
         </section>
         <!-- End Alt Services Section 2 -->
-
         <!-- ======= Our Team Section ======= -->
         <section id="team" class="team">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
-                    <h2>Our Team</h2>
-                    <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
-                        nobis omnis tiledo stran delop</p>
+                    <h2> The Board Members</h2>
+                    {{-- <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
+                    nobis omnis tiledo stran delop</p> --}}
                 </div>
                 <div class="row gy-5">
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member-img">
+                            <img src="{{ asset('website/assets/img/team/team-1.jpg') }}" class="img-fluid"
+                                alt="">
+                            <div class="social" >
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info text-center">
+                            <h4>Mahmoud Mohammed-Faraj Mahmoud Al Asali</h4>
+                            <span>Chairman</span>
+                        </div>
+                    </div>
+                    <!-- End Team Member -->
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
                         <div class="member-img">
                             <img src="{{ asset('website/assets/img/team/team-1.jpg') }}" class="img-fluid"
                                 alt="">
@@ -237,14 +254,12 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio
-                                dire flow</p>
+                            <h4>Kamal Deeb Ibraheem Abu Qamar</h4>
+                            <span>Vice Chairman</span>
                         </div>
                     </div>
                     <!-- End Team Member -->
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
                         <div class="member-img">
                             <img src="{{ asset('website/assets/img/team/team-2.jpg') }}" class="img-fluid"
                                 alt="">
@@ -256,16 +271,14 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                            <p>Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores
-                                exercitationem ut</p>
+                            <h4>Ola Mahmoud Mohammed Shatat</h4>
+                            <span>Treasurer</span>
                         </div>
                     </div>
                     <!-- End Team Member -->
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
                         <div class="member-img">
-                            <img src="{{ asset('website/assets/img/team/team-3.jpg') }}" class="img-fluid"
+                            <img src="{{ asset('website/assets/img/team/team-1.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -275,16 +288,14 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <p>Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque
-                                sed facilis at qui</p>
+                            <h4>Mohammed Saadi Mohammed El Aila</h4>
+                            <span>Secretary</span>
                         </div>
                     </div>
                     <!-- End Team Member -->
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
                         <div class="member-img">
-                            <img src="{{ asset('website/assets/img/team/team-4.jpg') }}" class="img-fluid"
+                            <img src="{{ asset('website/assets/img/team/team-2.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -294,16 +305,14 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                            <p>Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi
-                                quam consectetur</p>
+                            <h4>Naheel Nafez Hassan Al-Sharafi</h4>
+                            <span>Member</span>
                         </div>
                     </div>
                     <!-- End Team Member -->
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
                         <div class="member-img">
-                            <img src="{{ asset('website/assets/img/team/team-5.jpg') }}" class="img-fluid"
+                            <img src="{{ asset('website/assets/img/team/team-1.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -313,16 +322,13 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>Brian Doe</h4>
-                            <span>Marketing</span>
-                            <p>Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia
-                                impedit laborum velit</p>
+                            <h4>Osama Ziyad Hassouna Shamlakh</h4>
+                            <span>Member</span>
                         </div>
                     </div>
-                    <!-- End Team Member -->
-                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
                         <div class="member-img">
-                            <img src="{{ asset('website/assets/img/team/team-6.jpg') }}" class="img-fluid"
+                            <img src="{{ asset('website/assets/img/team/team-2.jpg') }}" class="img-fluid"
                                 alt="">
                             <div class="social">
                                 <a href="#"><i class="bi bi-twitter"></i></a>
@@ -332,10 +338,24 @@
                             </div>
                         </div>
                         <div class="member-info text-center">
-                            <h4>Josepha Palas</h4>
-                            <span>Operation</span>
-                            <p>Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit
-                                eligendi cupiditate vel</p>
+                            <h4>Haneen Ahmed Abdullah Al-Sammak</h4>
+                            <span>Member</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+                        <div class="member-img">
+                            <img src="{{ asset('website/assets/img/team/team-1.jpg') }}" class="img-fluid"
+                                alt="">
+                            <div class="social">
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info text-center">
+                            <h4>Abed Al Rahman Mahmoud Mohammed Al Muza’nen</h4>
+                            <span>Member</span>
                         </div>
                     </div>
                     <!-- End Team Member -->
@@ -343,138 +363,6 @@
             </div>
         </section>
         <!-- End Our Team Section -->
-
-        {{-- <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Testimonials</h2>
-                    <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem
-                        uia reprehenderit sunt deleniti</p>
-                </div>
-                <div class="slides-2 swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('website/assets/img/testimonials/testimonials-1.jpg') }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>Saul Goodman</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                        risus at semper.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('website/assets/img/testimonials/testimonials-2.jpg') }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>Sara Wilsson</h3>
-                                    <h4>Designer</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                        cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                        legam anim culpa.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('website/assets/img/testimonials/testimonials-3.jpg') }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>Jena Karlis</h3>
-                                    <h4>Store Owner</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
-                                        veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                                        minim.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('website/assets/img/testimonials/testimonials-4.jpg') }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>Matt Brandon</h3>
-                                    <h4>Freelancer</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                        fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                        dolore labore illum veniam.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('website/assets/img/testimonials/testimonials-5.jpg') }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>John Larson</h3>
-                                    <h4>Entrepreneur</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                        veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                        culpa fore nisi cillum quid.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-        <!-- End Testimonials Section --> --}}
     </main>
     <!-- End #main -->
 @endsection

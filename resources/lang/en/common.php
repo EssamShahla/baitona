@@ -49,7 +49,7 @@ return [
     'file' => 'File',
     'app_name' => 'Baitona',
     'programs' => 'Programs',
-    'pogram' => 'Program',
+    'program' => 'Program',
     'contacts' => 'Contacts',
     'email' => 'Email',
     'mobile' => 'Mobile',
@@ -92,7 +92,22 @@ return [
     'search' => 'Search',
     'Administrative' => 'Administrative',
     'Financial' => 'Financial',
-    'edit' => 'Edit'
+    'edit' => 'Edit',
+    'ads' => 'ads',
+    'activity' => 'activity',
+    'delete_confirmation' => 'delete_confirmation',
+    'confirm_delete' => 'confirm_delete ',
+    'cancel' => 'cancel',
+    'Structural' => 'Structural',
+    'Structural' => 'Structural',
+    'Systems' => 'Systems',
+    'Policies' => 'Policies',
+    'Protocols' => 'Protocols',
+    'Evidence' => 'Evidence',
+    'Other' => 'Other',
+    'suggestions' => 'Suggestions',
+    'complaints' => 'Complaints',
+
 
 ];
 

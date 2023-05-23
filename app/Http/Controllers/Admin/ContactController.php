@@ -38,7 +38,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -89,8 +89,7 @@ class ContactController extends Controller
 
     public function indexTable(Request $request)
     {
-        dd('asd');
-        $contacts = Contact::query()->where('type', 1)->orderByDesc('created_at');
+        $contacts = Contact::query()->orderByDesc('created_at');
         return DataTables::of($contacts)->addColumn('action', function ($contact) {
             $data = '';
             $data .= 'data-name_ar="' . $contact->name_ar . '"';

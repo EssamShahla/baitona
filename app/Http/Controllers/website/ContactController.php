@@ -8,6 +8,7 @@ use App\Models\Program;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactNotification;
 use App\Mail\ContactNotification\ContactNotification as ContactNotificationContactNotification;
+use Exception;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -42,28 +43,31 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name_ar' => 'required',
-            'message_ar' => 'required',
+            'name_en' => 'required',
+            'message_en' => 'required',
             'email' => 'required|email',
+            'type' => 'required',
             'mobile' => 'required',
         ];
 
         $this->validate($request, $rules);
+
         $data = [
-            'name_ar' => $request->input('name_ar'),
-            'message_ar' => $request->input('message_ar'),
+            'name_en' => $request->input('name_en'),
+            'message_en' => $request->input('message_en'),
             'email' => $request->input('email'),
             'mobile' => $request->input('mobile'),
+            'type' => $request->input('type'),
         ];
-        $data['type'] = 1;
-        $data['name_en'] = 'eeee';
-        $data['message_en'] = 'eeeee';
+
+        $data['name_ar'] = 'eeee';
+        $data['message_ar'] = 'eeeee';
 
         Contact::query()->create($data);
+        $successMessage = "<div class='sent-message d-block'>Your message has been sent. Thank you!</div>";
 
-        // Mail::to('essamshahla03@gmail.com')->send(new ContactNotification($data));
+        return $successMessage;
 
-        return "Your message has been sent. Thank you!";
     }
 
     /**

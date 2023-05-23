@@ -16,9 +16,11 @@
                     <h4 class="card-title">@lang('common.sliders')</h4>
                 </div>
                 <div class="card-body">
+                    @can('create_sliders')
                     <button type="button" class="btn btn-outline-primary add_btn" style="float: left"
                         data-bs-original-title="Edit" data-bs-toggle="modal" id="create_btn"
                         data-bs-target=".create_modal">+ @lang('common.add')</button>
+                        @endcan
                     {{--                @if (auth()->user()->hasAnyPermission(['edit_country_status'])) --}}
                     {{-- <button value="1" disabled="disabled" id="status_btn" class="status_btn btn btn-dark">
                         @lang('common.activate')
@@ -28,8 +30,10 @@
                     </button> --}}
                     {{--                @endif --}}
                     {{--                @if (auth()->user()->hasAnyPermission(['delete_country'])) --}}
+                    @can('delete_sliders')
                     <button disabled="disabled" id="delete_btn" class="delete-btn btn btn-danger"><i
                             class="fa fa-lg fa-trash-o"></i> @lang('common.delete')</button>
+                            @endcan
                     {{--                @endif
                 </div>
                 {{-- <form id="search_form" style="margin-right: 25px;margin-top: 30px"> --}}
@@ -50,6 +54,7 @@
                         </div>
                     </div>
                 </form> --}}
+                @can('show_sliders')
                     <div class="table-responsive">
                         <table class="table table-bordered" id="datatable">
                             <thead>
@@ -65,7 +70,9 @@
                                     <th>@lang('common.title')</th>
                                     <th>@lang('common.desc')</th>
                                     <th>@lang('common.image')</th>
+                                    @canany(['edit_sliders' , 'delete_sliders'])
                                     <th>@lang('common.actions')</th>
+                                    @endcanany
                                 </tr>
                             </thead>
                             <tbody id="sliders_table">
@@ -73,6 +80,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -266,12 +274,14 @@
                             return '<img src="' + full.image + '" style="width: 100px;">';
                         }
                     },
+                    @canany(['edit_sliders' , 'delete_sliders'])
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     }
+                    @endcanany
                 ]
             });
 

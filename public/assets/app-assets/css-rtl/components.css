@@ -3867,7 +3867,7 @@ div.dataTables_wrapper div.dataTables_filter select, div.dataTables_wrapper div.
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
-  margin-right : 0.75rem;
+  /* margin-right : 0.75rem; */
 }
 
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {

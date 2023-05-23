@@ -139,30 +139,32 @@ class ArticalController extends Controller
         return DataTables::of($articles)->addColumn('type', function ($item) {
             if ($item->type == 1) {
                 return  '<span class="badge bg-danger"> Article </span>';
-            } else if($item->type == 2) {
+            } else if ($item->type == 2) {
                 return  '<span class="badge bg-info"> Ad </span>';
-            }else{
+            } else {
                 return  '<span class="badge bg-success"> Activity </span>';
             }
         })
-        ->addColumn('action', function ($article) {
-            $data = '';
-            $data .= 'data-title_ar="' . $article->title_ar . '"';
-            $data .= 'data-title_en="' . $article->title_en . '"';
-            $data .= 'data-short_desc_ar="' . $article->short_desc_ar . '"';
-            $data .= 'data-short_desc_en="' . $article->short_desc_en . '"';
-            $data .= 'data-full_desc_ar="' . $article->full_desc_ar . '"';
-            $data .= 'data-full_desc_en="' . $article->full_desc_en . '"';
-            $data .= 'data-author_name="' . $article->author_name . '"';
-            $data .= 'data-type="' . $article->type . '"';
-            $data .= 'data-image="' . $article->image . '"';
-            $data .= 'data-id="' . $article->id . '"';
+            ->addColumn('action', function ($article) {
+                $data = '';
+                $data .= 'data-title_ar="' . $article->title_ar . '"';
+                $data .= 'data-title_en="' . $article->title_en . '"';
+                $data .= 'data-short_desc_ar="' . $article->short_desc_ar . '"';
+                $data .= 'data-short_desc_en="' . $article->short_desc_en . '"';
+                // $data .= 'data-full_desc_ar="' . $article->full_desc_ar . '"';
+                // $data .= 'data-full_desc_en="' . $article->full_desc_en . '"';
+                $data .= 'data-author_name="' . $article->author_name . '"';
+                $data .= 'data-type="' . $article->type . '"';
+                $data .= 'data-image="' . $article->image . '"';
+                $data .= 'data-id="' . $article->id . '"';
 
-            $string = '';
-            $string .= '<button class="btn btn-warning edit_btn" ' . $data . '  data-bs-target="#editUser" data-bs-toggle="modal">Edit</button>';
-            $string .= '<button class="btn btn-danger delete-btn" data-id=' . $article->id . '>Delete</button>';
+                $string = '';
+                $string .= '<div id="full_desc_' . $article->id . '" hidden>' . $article->full_desc_ar . '</div>';
+                $string .= '<div id="full_desc_' . $article->id . '" hidden>' . $article->full_desc_en . '</div>';
+                $string .= '<button class="btn btn-warning edit_btn" ' . $data . '  data-bs-target="#editUser" data-bs-toggle="modal">Edit</button>';
+                $string .= '<button class="btn btn-danger delete-btn" data-id=' . $article->id . '>Delete</button>';
 
-            return $string;
-        })->rawColumns(['type', 'action'])->make(true);
+                return $string;
+            })->rawColumns(['type', 'action'])->make(true);
     }
 }

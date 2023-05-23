@@ -93,8 +93,15 @@
                                     <label class="form-label"
                                         for="type">{{ __('common.type') }}</label>
                                         <select class="form-control" name="type">
-                                            <option value="1">{{ __('common.Administrative') }}</option>
-                                            <option value="2">{{ __('common.Financial') }}</option>
+                                            <option value="" disabled selected>@lang('common.select')</option>
+                                            <option value="1">{{ __('common.Financial') }}</option>
+                                            <option value="2">{{ __('common.Administrative') }}</option>
+                                            <option value="3">{{ __('common.Structural') }}</option>
+                                            <option value="4">{{ __('common.Systems') }}</option>
+                                            <option value="5">{{ __('common.Policies') }}</option>
+                                            <option value="6">{{ __('common.Protocols') }}</option>
+                                            <option value="7">{{ __('common.Evidence') }}</option>
+                                            <option value="8">{{ __('common.Other') }}</option>
                                         </select>
                                     <div class="invalid-feedback"></div>
                                 </div>
@@ -142,8 +149,15 @@
                                 <label class="form-label"
                                     for="type">{{ __('common.type') }}</label>
                                     <select id="edit_type" class="form-control" name="type">
+                                        <option value="" disabled selected>@lang('common.select')</option>
                                         <option value="1">{{ __('common.Administrative') }}</option>
                                         <option value="2">{{ __('common.Financial') }}</option>
+                                        <option value="3">{{ __('common.Structural') }}</option>
+                                        <option value="4">{{ __('common.Systems') }}</option>
+                                        <option value="5">{{ __('common.Policies') }}</option>
+                                        <option value="6">{{ __('common.Protocols') }}</option>
+                                        <option value="7">{{ __('common.Evidence') }}</option>
+                                        <option value="8">{{ __('common.Other') }}</option>
                                     </select>
                                 <div class="invalid-feedback"></div>
                             </div>

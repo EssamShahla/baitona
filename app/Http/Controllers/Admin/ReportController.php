@@ -49,10 +49,10 @@ class ReportController extends Controller
 
         $data = $request->except('file');
 
-        if ($request->image) {
+        if ($request->file) {
             $filename = rand(111111111, 999999999) . '_' . Carbon::now()->timestamp;
             $filename .= substr($request->file->getClientOriginalName(), strrpos($request->file->getClientOriginalName(), '.'));
-            $filename = $request->image->move(public_path('files'), $filename);
+            $filename = $request->file->move(public_path('files'), $filename);
             $data['file'] = $filename->getBasename();
         }
 
@@ -151,7 +151,7 @@ class ReportController extends Controller
     // {
     //     $report = Report::query()->find($id);
     //     $file = public_path('/files/' . $report->file);
-        
+
     //     return Response::download($file);
     // }
 }

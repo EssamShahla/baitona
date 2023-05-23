@@ -16,9 +16,12 @@
                     <h4 class="card-title">@lang('common.articles')</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary add_btn" style="float: left"
-                        data-bs-original-title="Edit" data-bs-toggle="modal" id="create_btn"
-                        data-bs-target=".create_modal">+ @lang('common.add')</button>
+                    @can('create_articles')
+                        <button type="button" class="btn btn-outline-primary add_btn" style="float: left"
+                            data-bs-original-title="Edit" data-bs-toggle="modal" id="create_btn"
+                            data-bs-target=".create_modal">+ @lang('common.add')</button>
+                    @endcan
+
                     {{--                @if (auth()->user()->hasAnyPermission(['edit_country_status'])) --}}
                     {{-- <button value="1" disabled="disabled" id="status_btn" class="status_btn btn btn-dark">
                         @lang('common.activate')
@@ -28,8 +31,11 @@
                     </button> --}}
                     {{--                @endif --}}
                     {{--                @if (auth()->user()->hasAnyPermission(['delete_country'])) --}}
+                    @can('delete_articles')
                     <button disabled="disabled" id="delete_btn" class="delete-btn btn btn-danger"><i
                             class="fa fa-lg fa-trash-o"></i> @lang('common.delete')</button>
+                    @endcan
+
                     {{--                @endif
                 </div>
                 {{-- <form id="search_form" style="margin-right: 25px;margin-top: 30px"> --}}
@@ -50,6 +56,7 @@
                         </div>
                     </div>
                 </form> --}}
+                    @can('show_articles')
                     <div class="table-responsive">
                         <table class="table table-bordered" id="datatable">
                             <thead>
@@ -67,13 +74,17 @@
                                     <th>@lang('common.type')</th>
                                     <th>@lang('common.author_name')</th>
                                     <th>@lang('common.image')</th>
+                                    @canany(['edit_articles','delete_articles'])
                                     <th>@lang('common.actions')</th>
+                                    @endcanany
                                 </tr>
                             </thead>
                             <tbody id="articles_table">
                             </tbody>
                         </table>
                     </div>
+                    @endcan
+                    {{-- @endcan --}}
                 </div>
             </div>
         </div>
@@ -109,15 +120,30 @@
                                     <div class="invalid-feedback"></div>
                                 </div>
                             @endforeach
+
+                            <!--Include the JS & CSS-->
+                            <link rel="stylesheet" href="{{ asset('texteditor/richtexteditor/rte_theme_default.css') }}" />
+                            <script type="text/javascript" src="{{ asset('texteditor/richtexteditor/rte.js') }}"></script>
+                            <script type="text/javascript" src='{{ asset('texteditor/richtexteditor/plugins/all_plugins.js') }}'></script>
                             @foreach (locales() as $key => $value)
-                                <div class="col-12 col-md-6">
+                                <label class="form-label"
+                                    for="full_desc_{{ $key }}">{{ __('common.full_desc') . ' - ' . __('common.' . $value) }}</label>
+
+                                <textarea type="text" id="full_desc_{{ $key }}" name="full_desc_{{ $key }}" class="form-control"
+                                    placeholder="{{ __('common.full_desc') . ' - ' . __('common.' . $value) }}"></textarea>
+
+                                <script>
+                                    var editor1 = new RichTextEditor("#full_desc_{{ $key }}");
+                                </script>
+                            @endforeach
+                            {{-- <div class="col-12 col-md-6">
                                     <label class="form-label"
                                         for="full_desc_{{ $key }}">{{ __('common.full_desc') . ' - ' . __('common.' . $value) }}</label>
                                     <textarea type="text" id="full_desc_{{ $key }}" name="full_desc_{{ $key }}" class="form-control"
                                         placeholder="{{ __('common.full_desc') . ' - ' . __('common.' . $value) }}"></textarea>
                                     <div class="invalid-feedback"></div>
-                                </div>
-                            @endforeach
+                                </div> --}}
+
                             <div class="col-12 col-md-6">
                                 <label class="form-label" for="type">{{ __('common.type') }}</label>
                                 <select id="type" name="type" class="form-control">
@@ -130,9 +156,12 @@
                                         <div style="color: red">{{ $errors->first('title_' . $key) }}</div>
                                     @endif --}}
                             </div>
-                            <div class="col-12 col-md-6">
+                            @php
+                                $authorName = auth()->user()->full_name;
+                            @endphp
+                            <div class="col-12 col-md-6" hidden>
                                 <label class="form-label" for="author_name">{{ __('common.author_name') }}</label>
-                                <input type="text" id="author_name" name="author_name" class="form-control"
+                                <input type="text" id="author_name" name="author_name" class="form-control" value="{{ $authorName }}"
                                     placeholder="{{ __('common.author_name') }}" />
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -197,7 +226,7 @@
                                     <div class="invalid-feedback"></div>
                                 </div>
                             @endforeach
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6" hidden>
                                 <label class="form-label" for="edit_author_name">date</label>
                                 <input type="text" id="edit_author_name" name="author_name" class="form-control"
                                     placeholder="{{ __('common.author_name') }}" />
@@ -320,12 +349,16 @@
                             return '<img src="' + full.image + '" style="width: 100px;">';
                         }
                     },
+
+                    @canany(['edit_articles','delete_articles'])
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     }
+                    @endcanany
+
                 ]
             });
             $(document).ready(function() {
@@ -343,7 +376,7 @@
                     $('#edit_title_en').val(button.data('title_en'));
                     $('#edit_short_desc_ar').val(button.data('short_desc_ar'));
                     $('#edit_short_desc_en').val(button.data('short_desc_en'));
-                    $('#edit_full_desc_ar').val(button.data('full_desc_ar'));
+                    $('#edit_full_desc_ar').val($('#full_desc_' + id).html());
                     $('#edit_full_desc_en').val(button.data('full_desc_en'));
                     $('#edit_author_name').val(button.data('author_name'));
                     $('#edit_type').val(button.data('type'));

@@ -139,13 +139,15 @@
                                     placeholder="{{ __('common.name') }}" />
                                 <div class="invalid-feedback"></div>
                             </div>
-                            <div class="col-12 col-md-12">
-                                <label class="form-label" for="edit_permission_ids">{{ __('common.pogram') }}</label>
-                                <select id="edit_permission_ids" multiple name="permission_ids[]" class="form-control">
-                                    @foreach ($permissions as $permission)
+                            <div class="col-6">
+                                <label class="form-label" for="edit_permission_ids">{{__('common.permissions')}}</label>
+                                <div class="mb-1">
+                                    <div class="position-relative"><select class="select2 form-select select2-hidden-accessible" multiple="" id="edit_permission_ids" name="permission_ids[]" tabindex="-1" aria-hidden="true">
+                                        @foreach ($permissions as $permission)
                                         <option value="{{ $permission->id }}">{{ $permission->name }}</option>
-                                    @endforeach
-                                </select>
+                                        @endforeach
+                                    </select></div>
+                                </div>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-12 text-center mt-2 pt-50">
@@ -197,7 +199,7 @@
                 ],
                 processing: true,
                 serverSide: true,
-                searching: true,
+                searching: false    ,
                 ajax: {
                     url: url + 'indexTable',
                     data: function(d) {

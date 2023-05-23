@@ -12,7 +12,7 @@ class Contact extends Model
     use HasFactory;
     protected $table = 'contacts';
     protected $guarded = [];
-    protected $appends = ['name', 'message'];
+    protected $appends = ['name', 'message','type_name'];
 
     public function getNameAttribute()
     {
@@ -20,6 +20,16 @@ class Contact extends Model
             return $this->name_ar;
         }else{
             return $this->name_en;
+        }
+    }
+    public function getTypeNameAttribute()
+    {
+        if ($this->type == 1){
+            return __('common.suggestions');
+        }else if($this->type == 2){
+            return __('common.complaints');
+        }else{
+            return __('common.Other');
         }
     }
 

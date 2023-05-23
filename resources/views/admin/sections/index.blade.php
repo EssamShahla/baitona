@@ -19,37 +19,10 @@
                     <button type="button" class="btn btn-outline-primary add_btn" style="float: left"
                         data-bs-original-title="Edit" data-bs-toggle="modal" id="create_btn"
                         data-bs-target=".create_modal">+ @lang('common.add')</button>
-                    {{--                @if (auth()->user()->hasAnyPermission(['edit_country_status'])) --}}
-                    {{-- <button value="1" disabled="disabled" id="status_btn" class="status_btn btn btn-dark">
-                        @lang('common.activate')
-                    </button>
-                    <button value="0" disabled="disabled" id="status_btn" class="status_btn btn btn-warning">
-                        @lang('common.deactivate')
-                    </button> --}}
-                    {{--                @endif --}}
-                    {{--                @if (auth()->user()->hasAnyPermission(['delete_country'])) --}}
+
                     <button disabled="disabled" id="delete_btn" class="delete-btn btn btn-danger"><i
                             class="fa fa-lg fa-trash-o"></i> @lang('common.delete')</button>
-                    {{--                @endif
-                </div>
-                {{-- <form id="search_form" style="margin-right: 25px;margin-top: 30px"> --}}
-                    {{-- <h6>@lang('common.search')</h6>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input id="s_name" name="name" class="form-control" style="width: 15%; display: inline" placeholder="@lang('common.name')">
-                            <select id="s_country_id" name="country_id" class="form-control" style="width: 15%; display: inline">
-                                <option selected disabled>@lang('common.choose') @lang('common.country')</option>
-                                @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                @endforeach
-                            </select>
-                            <input type="button" id="search_btn"
-                            class="btn btn-info" value="@lang('common.search')">
-                            <input type="button" id="clear_btn"
-                            class="btn btn-secondary" value="@lang('common.clear_search')">
-                        </div>
-                    </div>
-                </form> --}}
+
                     <div class="table-responsive">
                         <table class="table table-bordered" id="datatable">
                             <thead>
@@ -92,7 +65,7 @@
                             onsubmit="return false" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12 col-md-12">
-                                <label class="form-label" for="program_id">{{ __('common.pogram') }}</label>
+                                <label class="form-label" for="program_id">{{ __('common.program') }}</label>
                                 <select id="program_id" name="program_id" class="form-control">
                                     <option value="" disabled selected>@lang('common.select')</option>
                                     @foreach ($programs as $program)
@@ -158,7 +131,7 @@
                             @csrf
                             @method('PUT')
                             <div class="col-12 col-md-12">
-                                <label class="form-label" for="edit_program_id">{{ __('common.pogram') }}</label>
+                                <label class="form-label" for="edit_program_id">{{ __('common.program') }}</label>
                                 <select id="edit_program_id" name="program_id" class="form-control">
                                     <option value="" disabled selected>@lang('common.select')</option>
                                     @foreach ($programs as $program)
@@ -247,7 +220,7 @@
                 ],
                 processing: true,
                 serverSide: true,
-                searching: true,
+                searching: false,
                 ajax: {
                     url: url + 'indexTable',
                     data: function(d) {
